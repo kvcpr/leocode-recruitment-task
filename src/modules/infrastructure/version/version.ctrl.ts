@@ -23,7 +23,7 @@ export const registerVersionController = (app: FastifyTypedInstance) => () => {
     url: '/version',
     logLevel: 'warn',
     schema: versionSchema,
-    handler: (req, reply) => {
+    handler: async (req, reply) => {
       reply.status(200).send({ version });
     },
   });
