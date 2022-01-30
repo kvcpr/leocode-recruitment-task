@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Leocode Recuruitment Task API",
+    "version": "1.0"
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Access token stored in \"Authorization\" header"
+      }
+    }
+  },
+  "paths": {
+    "/version": {
+      "get": {
+        "tags": [
+          "Infrastructure"
+        ],
+        "description": "Application version",
+        "responses": {
+          "200": {
+            "description": "Application version",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Application version",
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "version"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

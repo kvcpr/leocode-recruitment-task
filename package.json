@@ -7,6 +7,9 @@
   "author": "Kacper Polak <kacper@hypequality.com>",
   "license": "UNLICENSED",
   "private": true,
+  "workspaces": [
+    "lib/*"
+  ],
   "scripts": {
     "build": "rimraf build && tsc -p tsconfig.build.json",
     "start": "node -r tsconfig-paths/register --enable-source-maps src/main.js",
@@ -29,9 +32,12 @@
     }
   },
   "dependencies": {
+    "@hypedevs/fastify-typed-route": "",
     "dotenv": "^14.3.2",
     "envalid": "^7.2.2",
     "fastify": "^3.27.0",
+    "fastify-swagger": "^4.13.1",
+    "openapi-types": "^10.0.0",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {

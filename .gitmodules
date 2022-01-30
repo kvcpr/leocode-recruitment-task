@@ -1,0 +1,3 @@
+[submodule "lib/fastify-typed-route"]
+	path = lib/fastify-typed-route
+	url = https://github.com/hypedevs/fastify-typed-route.git
