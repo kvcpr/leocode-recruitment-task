@@ -44,6 +44,96 @@
           }
         }
       }
+    },
+    "/api/sign-in": {
+      "post": {
+        "summary": "Sign in",
+        "tags": [
+          "Auth"
+        ],
+        "description": "Sign into account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created session token available in response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Created session token available in response",
+                  "type": "object",
+                  "properties": {
+                    "authToken": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "authToken"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Account does not exist or incorrect values passed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Account does not exist or incorrect values passed",
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "detail": {
+                            "type": "string",
+                            "enum": [
+                              "Account does not exist or incorrect values passed"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "title"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "errors"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

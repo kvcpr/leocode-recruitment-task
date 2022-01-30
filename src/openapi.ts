@@ -13,6 +13,46 @@ export const schemaDefinitions: SchemaDefinitions = {};
 
 export type FastifyTypedInstance = TypedFastify;
 
+export const authorizedRouteSecurity: {
+  security: Array<{ [securityLabel: string]: string[] }>;
+} = {
+  security: [{ bearerAuth: [] }],
+};
+
+export const authorizedRoute = {
+  security: authorizedRouteSecurity,
+  unauthorizedResponse: () => ({
+    401: {
+      description:
+        'The request cannot be processed because it lacks ' +
+        'valid authentication credentials for the target resource.',
+      type: 'object',
+      properties: {
+        errors: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              title: { type: 'string' },
+              detail: {
+                type: 'string',
+                enum: [
+                  'The request cannot be processed because it lacks ' +
+                    'valid authentication credentials for the target resource.',
+                ],
+              },
+            },
+            required: ['title'],
+            additionalProperties: false,
+          },
+        },
+      },
+      required: ['errors'],
+      additionalProperties: false,
+    },
+  }),
+};
+
 export function buildOpenApiSchema(app: FastifyTypedInstance) {
   const openApiSchema = app.swagger() as OpenAPIV3.Document;
 
