@@ -1,0 +1,46 @@
+{
+  "name": "@kvcpr/leocode-recruitment-task",
+  "version": "1.0.0",
+  "description": "Recuriment task for Leocode",
+  "main": "index.js",
+  "repository": "https://github.com/kvcpr/leocode-recruitment-task.git",
+  "author": "Kacper Polak <kacper@hypequality.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "rimraf build && tsc -p tsconfig.build.json",
+    "start": "node -r tsconfig-paths/register --enable-source-maps src/main.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --exit-child src/main.ts",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint . --ext ts"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@hypedevs"
+    ],
+    "ignorePatterns": [
+      "build"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^14.3.2",
+    "envalid": "^7.2.2",
+    "fastify": "^3.27.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@hypedevs/eslint-config": "https://github.com/hypedevs/eslint-config.git",
+    "@types/node": "16",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.5"
+  }
+}

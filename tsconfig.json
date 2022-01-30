@@ -1,0 +1,37 @@
+{
+  "extends": "./tsconfig.paths.json",
+  "ts-node": {
+    "transpileOnly": true
+  },
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "dom"],
+    "types": ["node"],
+    "typeRoots": ["src/types", "node_modules/@types"],
+
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+
+    "allowJs": true,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+
+    "noErrorTruncation": true
+  },
+  "include": [
+    "lib/**/*.d.ts",
+    "lib/**/*.ts",
+    "src/**/*.ts"
+  ]
+}

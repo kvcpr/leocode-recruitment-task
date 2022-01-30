@@ -1,0 +1,21 @@
+.env
+.env.*
+!.env.template
+!.env.*.template
+
+dist/
+node_modules
+.vscode
+.DS_Store
+build/
+
+# code coverage reports
+coverage
+.nyc_output
+
+# junit reports
+junit.xml
+/.idea/
+
+build
+.npmrc
