@@ -1,4 +1,4 @@
-import type { UserRepository } from '@/db/repositories/user.repository';
+import type { UserRepository } from '@/db/repositories/User.repository';
 import type { FastifyTypedInstance } from '@/openapi';
 
 import type { InternalKeysStorage } from '../../keysStorage/internalKeysStorage';

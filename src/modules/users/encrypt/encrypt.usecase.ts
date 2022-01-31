@@ -14,14 +14,14 @@ export const encryptFileWithPublicKey =
 
     return new Promise((resolve, reject) => {
       try {
-        const BUFFER_BYTES = 256 - 42; // using 2048 bits key = 256 bytes
+        const bufferBytes = 256 - 42; // using 2048 bits key = 256 bytes - 42 for padding
         const cryptedChunks: string[] = [];
         const fileStream = createReadStream(filePath, {
-          highWaterMark: BUFFER_BYTES,
+          highWaterMark: bufferBytes,
         });
         fileStream
           .on('data', (chunk: Buffer) => {
-            const buffer = Buffer.alloc(BUFFER_BYTES);
+            const buffer = Buffer.alloc(bufferBytes);
             buffer.fill(chunk);
 
             const encryptedChunk = publicEncrypt({ key: publicKey }, buffer);

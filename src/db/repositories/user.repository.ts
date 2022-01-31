@@ -7,7 +7,7 @@ import type {
   NamedKey,
 } from '@/modules/keysStorage/internalKeysStorage';
 
-import { User } from '../entities/user.entity';
+import { User } from '../entities/User.entity';
 
 const generateKeyPair = promisify(crypto.generateKeyPair);
 

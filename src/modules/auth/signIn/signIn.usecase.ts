@@ -1,7 +1,7 @@
 import argon2 from 'argon2';
 import type { FastifyLoggerInstance } from 'fastify';
 
-import type { UserRepository } from '@/db/repositories/user.repository';
+import type { UserRepository } from '@/db/repositories/User.repository';
 
 export const validateCredentials =
   ({

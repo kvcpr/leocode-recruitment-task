@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import config from '@/config';
 
 import { setupApp } from './app';
-import { UserRepository } from './db/repositories/user.repository';
+import { UserRepository } from './db/repositories/User.repository';
 import { InternalKeysStorage } from './modules/keysStorage/internalKeysStorage';
 import { saveOpenApiSchema } from './openapi';
 
