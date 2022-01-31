@@ -23,7 +23,6 @@ COPY --from=builder /usr/app/lib /usr/app/lib
 COPY --from=builder /usr/app/build /usr/app/build
 COPY --from=builder /usr/app/package.json /usr/app/package.json
 COPY --from=builder /usr/app/yarn.lock /usr/app/yarn.lock
-COPY --from=builder /usr/app/src/db/schema.prisma /usr/app/src/db/schema.prisma
 
 RUN yarn install --production
 
