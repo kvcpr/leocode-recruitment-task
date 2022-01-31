@@ -4,6 +4,14 @@
 - **Node** v16
 - **yarn** as pacakge manager
 
+## yarn scripts
+| Name | Description |
+| --- | --- |
+| build | Build app from typescript sources to ES2020 |
+| start | Start production app |
+| dev | Start app in development mode with "live reload" on changes |
+| check-types | Check TypeScript types |
+| lint |  Run eslint with prettier on codebase (see [ESLint / Prettier](#eslint--prettier) section) |
 
 ## API Documentation
 App includes swagger documentation avialable after start in `/documentation` path
