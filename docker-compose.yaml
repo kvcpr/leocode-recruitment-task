@@ -1,0 +1,23 @@
+version: "3"
+
+networks:
+  node-api-starter-net:
+
+services:
+  app: &app
+    networks:
+      node-api-starter-net:
+        aliases:
+          - node-api-starter-api
+    command: yarn start
+    env_file: .env
+    working_dir: /app
+    build:
+      dockerfile: Dockerfile
+      context: .
+    healthcheck:
+      test: "curl -f http://localhost:${PORT}/version || false"
+      interval: 1s
+      timeout: 3s
+    ports:
+      - "${PORT}:${PORT}"
