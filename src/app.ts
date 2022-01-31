@@ -8,10 +8,17 @@ import {
 } from '@/modules/index.register';
 import { registerSwagger, schemaDefinitions } from '@/openapi';
 
+import { decorateFastifyWithUserEmail } from './modules/auth/authorizeRequestHook';
+
 export async function setupApp(
   deps: RegisterDependencies
 ): Promise<FastifyInstance> {
-  const baseApp = fastify({});
+  const baseApp = fastify({
+    logger: {
+      level: 'debug',
+      prettyPrint: true,
+    },
+  });
 
   const app = await registerGlobalPlugins(baseApp);
 
@@ -25,6 +32,8 @@ async function registerGlobalPlugins(
 ): Promise<FastifyInstance> {
   const { fastifyTypedRoute } = createFastifyTypedRoute(schemaDefinitions);
   await app.register(fastifyTypedRoute);
+
+  decorateFastifyWithUserEmail(app);
 
   await registerSwagger(app);
 

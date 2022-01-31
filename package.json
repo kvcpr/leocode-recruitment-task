@@ -41,6 +41,7 @@
     "fastify-swagger": "^4.13.1",
     "jose-node-cjs-runtime": "^4.4.0",
     "openapi-types": "^10.0.0",
+    "pino-pretty": "^7.5.1",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {

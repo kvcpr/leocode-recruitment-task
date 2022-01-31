@@ -134,6 +134,73 @@
           }
         }
       }
+    },
+    "/api/generate-key-pair": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Returns user key pair",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User key pair",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User key pair",
+                  "type": "object",
+                  "properties": {
+                    "privKey": {
+                      "type": "string"
+                    },
+                    "pubKey": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "privKey",
+                    "pubKey"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/encrypt": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Returns file contains base64 string encoded with user rsa public key",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User key pair",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User key pair",
+                  "type": "string",
+                  "produces": [
+                    "application/octet-steam"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
