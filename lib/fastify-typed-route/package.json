@@ -19,11 +19,11 @@
     "fastify": "^3.25.2",
     "fastify-plugin": "^3.0.0",
     "json-schema-to-typescript": "^10.1.5",
-    "openapi-types": "^10.0.0"
+    "openapi-types": "^10.0.0",
+    "typescript": "^4.5.4"
   },
   "devDependencies": {
-    "@hypedevs/eslint-config": "https://github.com/hypedevs/eslint-config.git",
-    "typescript": "^4.5.4"
+    "@hypedevs/eslint-config": "https://github.com/hypedevs/eslint-config.git"
   },
   "eslintConfig": {
     "extends": [
