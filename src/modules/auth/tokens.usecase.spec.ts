@@ -4,8 +4,7 @@ import { promisify } from 'util';
 import { mockDeep } from 'jest-mock-extended';
 import { SignJWT } from 'jose-node-cjs-runtime';
 
-import config from '@/config';
-
+import config from '../../config';
 import type { InternalKeysStorage } from '../keysStorage/internalKeysStorage';
 
 import { generateAccessToken, verifyAccessToken } from './tokens.usecase';

@@ -6,8 +6,7 @@ import type {
   JWTHeaderParameters,
 } from 'jose-node-cjs-runtime';
 
-import config from '@/config';
-
+import config from '../../config';
 import type { InternalKeysStorage } from '../keysStorage/internalKeysStorage';
 import { JWT_ALGORITHM } from '../keysStorage/jwtAlgorithm';
 

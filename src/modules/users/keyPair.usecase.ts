@@ -1,6 +1,6 @@
 import type { FastifyLoggerInstance } from 'fastify';
 
-import type { InternalKeysStorage } from '@/modules/keysStorage/internalKeysStorage';
+import type { InternalKeysStorage } from '../keysStorage/internalKeysStorage';
 
 export const getKeyPairForEmail =
   ({

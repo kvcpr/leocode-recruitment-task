@@ -4,8 +4,7 @@ import type {
   onRequestAsyncHookHandler,
 } from 'fastify';
 
-import { authorizedRoute } from '@/openapi';
-
+import { authorizedRoute } from '../../openapi';
 import type { InternalKeysStorage } from '../keysStorage/internalKeysStorage';
 
 import * as tokensUseCase from './tokens.usecase';

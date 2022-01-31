@@ -1,12 +1,11 @@
 import * as crypto from 'crypto';
 import { promisify } from 'util';
 
-import { hashPassword } from '@/modules/auth/password.usecase';
+import { hashPassword } from '../../modules/auth/password.usecase';
 import type {
   InternalKeysStorage,
   NamedKey,
-} from '@/modules/keysStorage/internalKeysStorage';
-
+} from '../../modules/keysStorage/internalKeysStorage';
 import { User } from '../entities/User.entity';
 
 const generateKeyPair = promisify(crypto.generateKeyPair);

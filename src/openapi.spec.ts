@@ -2,8 +2,8 @@ import fs from 'fs';
 
 import type { FastifyInstance } from 'fastify';
 
-import { buildOpenApiSchema, saveOpenApiSchema } from '@/openapi';
-import { setupTestApp } from '@/spec/setupTestApp';
+import { buildOpenApiSchema, saveOpenApiSchema } from './openapi';
+import { setupTestApp } from './spec/setupTestApp';
 
 import currentOpenApi from '../openapi.json';
 

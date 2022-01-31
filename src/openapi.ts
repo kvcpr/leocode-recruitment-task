@@ -7,7 +7,7 @@ import type {
 import fastifySwagger from 'fastify-swagger';
 import type { OpenAPIV3 } from 'openapi-types';
 
-import config from '@/config';
+import config from './config';
 
 export const schemaDefinitions: SchemaDefinitions = {};
 
@@ -38,7 +38,7 @@ export const authorizedRoute = {
                 type: 'string',
                 enum: [
                   'The request cannot be processed because it lacks ' +
-                    'valid authentication credentials for the target resource.',
+                  'valid authentication credentials for the target resource.',
                 ],
               },
             },

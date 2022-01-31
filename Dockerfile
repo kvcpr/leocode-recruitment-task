@@ -22,8 +22,11 @@ RUN apt-get update && apt-get install -y git
 COPY --from=builder /usr/app/lib /usr/app/lib
 COPY --from=builder /usr/app/build /usr/app/build
 COPY --from=builder /usr/app/package.json /usr/app/package.json
+COPY --from=builder /usr/app/tsconfig.json /usr/app/tsconfig.json
+COPY --from=builder /usr/app/tsconfig.paths.json /usr/app/tsconfig.paths.json
+COPY --from=builder /usr/app/tsconfig.build.json /usr/app/tsconfig.build.json
 COPY --from=builder /usr/app/yarn.lock /usr/app/yarn.lock
 
 RUN yarn install --production
 
-CMD ["node", "/usr/app/build/main.js"]
+CMD ["yarn", "start"]

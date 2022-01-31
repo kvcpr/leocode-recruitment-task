@@ -1,6 +1,5 @@
-import type { UserRepository } from '@/db/repositories/User.repository';
-import type { FastifyTypedInstance } from '@/openapi';
-
+import type { FastifyTypedInstance } from '../../..//openapi';
+import type { UserRepository } from '../../../db/repositories/User.repository';
 import type { InternalKeysStorage } from '../../keysStorage/internalKeysStorage';
 import { generateAccessToken } from '../tokens.usecase';
 

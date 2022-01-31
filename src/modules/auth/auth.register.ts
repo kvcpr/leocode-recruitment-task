@@ -1,5 +1,5 @@
-import type { UserRepository } from '@/db/repositories/User.repository';
-import type { FastifyTypedInstance } from '@/openapi';
+import type { UserRepository } from '../../db/repositories/User.repository';
+import type { FastifyTypedInstance } from '../../openapi';
 
 import type { InternalKeysStorage } from '../keysStorage/internalKeysStorage';
 
@@ -12,6 +12,6 @@ export interface RegisterAuthDependencies {
 
 export const registerAuthHandlers =
   (app: FastifyTypedInstance) =>
-  ({ userRepository, keysStorage }: RegisterAuthDependencies) => {
-    registerSignInController(app)({ userRepository, keysStorage });
-  };
+    ({ userRepository, keysStorage }: RegisterAuthDependencies) => {
+      registerSignInController(app)({ userRepository, keysStorage });
+    };

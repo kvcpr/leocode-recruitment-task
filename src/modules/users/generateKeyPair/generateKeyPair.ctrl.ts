@@ -1,6 +1,8 @@
-import type { InternalKeysStorage } from '@/modules/keysStorage/internalKeysStorage';
-import { authorizedRouteSecurity, FastifyTypedInstance } from '@/openapi';
-
+import {
+  authorizedRouteSecurity,
+  FastifyTypedInstance,
+} from '../../../openapi';
+import type { InternalKeysStorage } from '../..//keysStorage/internalKeysStorage';
 import { getKeyPairForEmail } from '../keyPair.usecase';
 
 const generateKeyPairSchema = {

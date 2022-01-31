@@ -2,7 +2,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "build",
+    "outDir": "./build",
   },
   "exclude": [
     "lib/**/*.spec.ts",
@@ -10,7 +10,5 @@
     "src/**/*.spec.ts",
     "src/**/*.test.ts",
     "src/spec",
-    "plopfile.ts",
-    ".plop/**/*",
   ],
 }

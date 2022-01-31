@@ -2,7 +2,7 @@
   "name": "@kvcpr/leocode-recruitment-task",
   "version": "1.0.0",
   "description": "Recuriment task for Leocode",
-  "main": "index.js",
+  "main": "src/main.ts",
   "repository": "https://github.com/kvcpr/leocode-recruitment-task.git",
   "author": "Kacper Polak <kacper@hypequality.com>",
   "license": "UNLICENSED",
@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "rimraf build && tsc -p tsconfig.build.json",
-    "start": "node -r tsconfig-paths/register --enable-source-maps build/src/main.js",
+    "start": "node -r tsconfig-paths/register build/src/main.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --exit-child src/main.ts",
     "check-types": "tsc --noEmit",
     "lint": "eslint . --ext ts",

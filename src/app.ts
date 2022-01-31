@@ -5,8 +5,8 @@ import type { FastifyInstance } from 'fastify';
 import {
   RegisterDependencies,
   registerRouteHanlder,
-} from '@/modules/index.register';
-import { registerSwagger, schemaDefinitions } from '@/openapi';
+} from './modules/index.register';
+import { registerSwagger, schemaDefinitions } from './openapi';
 
 import { decorateFastifyWithUserEmail } from './modules/auth/authorizeRequestHook';
 

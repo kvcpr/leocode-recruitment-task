@@ -1,6 +1,5 @@
-import type { FastifyTypedInstance } from '@/openapi';
-
-import { version } from '@/../package.json';
+import { version } from '../../../../package.json';
+import type { FastifyTypedInstance } from '../../../openapi';
 
 const versionSchema = {
   description: 'Application version',
