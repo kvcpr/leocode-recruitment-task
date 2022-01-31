@@ -7,7 +7,7 @@ import { InternalKeysStorage } from './modules/keysStorage/internalKeysStorage';
 import { saveOpenApiSchema } from './openapi';
 
 async function seedData(userRepository: UserRepository) {
-  await Promise.all([
+  return await Promise.all([
     userRepository.create({ email: 'user1@app.dev', password: 'S0m3P@ssw0rd' }),
     userRepository.create({
       email: 'user2@app.dev',

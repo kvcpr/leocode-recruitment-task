@@ -89,6 +89,7 @@ export const registerSignInController =
         const { email } = validationResult;
         const authToken = await generateAccessToken({ keysStorage })({
           email,
+          password,
         });
 
         reply.status(201).send({ authToken });

@@ -1,4 +1,6 @@
-import { SignJWT, jwtVerify } from 'jose-node-cjs-runtime';
+import { createPrivateKey } from 'crypto';
+
+import { SignJWT, jwtVerify, importSPKI, KeyLike } from 'jose-node-cjs-runtime';
 import type {
   JWTVerifyGetKey,
   JWTHeaderParameters,
@@ -14,13 +16,22 @@ const audience = () => `${config.AUTH_ISSUER}:auth`;
 
 export const generateAccessToken =
   ({ keysStorage }: { keysStorage: InternalKeysStorage }) =>
-  async ({ email }: { email: string }) => {
+  async ({
+    email,
+    password: passphrase,
+  }: {
+    email: string;
+    password: string;
+  }) => {
     const privateKey = keysStorage.getPrivateKey(email);
     if (!privateKey) {
       throw new Error('Private key not found, can not continue.');
     }
 
-    const nowEpoch = Math.floor(Date.now() / 1000);
+    const pkcs8 = createPrivateKey({
+      key: privateKey.value,
+      passphrase,
+    });
 
     return new SignJWT({ email })
       .setProtectedHeader({ alg: JWT_ALGORITHM, kid: privateKey.email })
@@ -28,8 +39,8 @@ export const generateAccessToken =
       .setIssuedAt()
       .setIssuer(issuer())
       .setAudience(audience())
-      .setExpirationTime(nowEpoch + config.AUTH_ACCESS_TOKEN_TTL_SECS)
-      .sign(privateKey.value);
+      .setExpirationTime(config.AUTH_ACCESS_TOKEN_TTL)
+      .sign(pkcs8);
   };
 
 export const verifyAccessToken =
@@ -55,8 +66,7 @@ export const verifyAccessToken =
 function getPublicKeyFactory(
   keysStorage: InternalKeysStorage
 ): JWTVerifyGetKey {
-  // eslint-disable-block require-await
-  return async (tokenHeaders: JWTHeaderParameters) => {
+  return async (tokenHeaders: JWTHeaderParameters): Promise<KeyLike> => {
     const { kid } = tokenHeaders;
     if (!kid) {
       throw new Error("Provided token key has no 'kid' header");
@@ -67,7 +77,7 @@ function getPublicKeyFactory(
       throw new Error(`Key for token "${kid}" not found`);
     }
 
-    return Promise.resolve(matchedKey.value);
+    return await importSPKI(matchedKey.value, 'pem');
   };
 }
 

@@ -1,8 +1,6 @@
-import type { KeyLike } from 'jose-node-cjs-runtime';
-
 export interface NamedKey {
   email: string;
-  value: KeyLike;
+  value: string;
 }
 
 export class InternalKeysStorage {

@@ -34,7 +34,17 @@ export class UserRepository {
 
     const { privateKey, publicKey } = await generateKeyPair('rsa', {
       modulusLength: 2048,
-    });
+      publicKeyEncoding: {
+        type: 'spki',
+        format: 'pem',
+      },
+      privateKeyEncoding: {
+        type: 'pkcs8',
+        format: 'pem',
+        cipher: 'aes-256-cbc',
+        passphrase: password,
+      },
+    } as crypto.RSAKeyPairOptions<'pem', 'pem'>);
 
     const namedKeys: { privateKey: NamedKey; publicKey: NamedKey } = {
       privateKey: { email, value: privateKey },

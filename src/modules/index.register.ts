@@ -18,5 +18,5 @@ export const registerRouteHanlder =
 
     const authorizeHook = authorizeRequestHook({ keysStorage });
 
-    registerUsersHandlers(app)({ authorizeHook });
+    registerUsersHandlers(app)({ authorizeHook, keysStorage });
   };

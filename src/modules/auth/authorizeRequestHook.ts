@@ -10,8 +10,6 @@ import type { InternalKeysStorage } from '../keysStorage/internalKeysStorage';
 
 import * as tokensUseCase from './tokens.usecase';
 
-export { authorizeRequestHook, decorateFastifyWithAccountId };
-
 const userEmailDecoratorName = 'authorizedUserEmail';
 
 declare module 'fastify' {
@@ -20,7 +18,7 @@ declare module 'fastify' {
   }
 }
 
-function authorizeRequestHook({
+export function authorizeRequestHook({
   keysStorage,
 }: {
   keysStorage: InternalKeysStorage;
@@ -60,7 +58,7 @@ function unauthorizedResponseBody() {
   };
 }
 
-function decorateFastifyWithAccountId(app: FastifyInstance) {
+export function decorateFastifyWithUserEmail(app: FastifyInstance) {
   return app.decorateRequest(
     userEmailDecoratorName,
     userEmailDecoratorFactory()
