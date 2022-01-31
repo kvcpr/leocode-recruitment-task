@@ -38,7 +38,7 @@ export const authorizedRoute = {
                 type: 'string',
                 enum: [
                   'The request cannot be processed because it lacks ' +
-                  'valid authentication credentials for the target resource.',
+                    'valid authentication credentials for the target resource.',
                 ],
               },
             },

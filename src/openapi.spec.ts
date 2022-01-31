@@ -2,10 +2,10 @@ import fs from 'fs';
 
 import type { FastifyInstance } from 'fastify';
 
+import currentOpenApi from '../openapi.json';
+
 import { buildOpenApiSchema, saveOpenApiSchema } from './openapi';
 import { setupTestApp } from './spec/setupTestApp';
-
-import currentOpenApi from '../openapi.json';
 
 describe('openapi.json', () => {
   const fsWriteFileSyncSpy = jest.spyOn(fs, 'writeFileSync');

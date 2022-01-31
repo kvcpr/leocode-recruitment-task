@@ -13,6 +13,10 @@ const env = cleanEnv(process.env, {
 
   AUTH_ACCESS_TOKEN_TTL: str(),
   AUTH_ISSUER: str(),
+
+  ENABLE_LOGGING: bool({ default: true }),
+  LOG_LEVEL: str({ default: 'error' }),
+  PRETTY_PRINT: bool({ default: false }),
 });
 
 export default env;
