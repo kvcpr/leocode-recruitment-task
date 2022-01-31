@@ -1,17 +1,19 @@
 # Leocode Recruitment Task
 
 ## Requirements
-- **Node** v16
-- **yarn** as pacakge manager
+- **Node** `v16`
+- **yarn** as pacakge manager `^1.20`
 
 ## yarn scripts
 | Name | Description |
 | --- | --- |
-| build | Build app from typescript sources to ES2020 |
-| start | Start production app |
-| dev | Start app in development mode with "live reload" on changes |
-| check-types | Check TypeScript types |
-| lint |  Run eslint with prettier on codebase (see [ESLint / Prettier](#eslint--prettier) section) |
+| build | Builds app from typescript sources to ES2020 |
+| start | Starts production app |
+| dev | Starts app in development mode with "live reload" on changes |
+| check-types | Checks TypeScript types |
+| lint |  Runs eslint with prettier on codebase (see [ESLint / Prettier](#eslint--prettier) section) |
+| test | Runs jest tests with coverage reporter |
+| test:watch | Runs jest tests in watch mode |
 
 ## API Documentation
 App includes swagger documentation avialable after start in `/documentation` path

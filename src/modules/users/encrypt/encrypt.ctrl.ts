@@ -23,7 +23,7 @@ export const registerEncryptController =
   (app: FastifyTypedInstance) =>
   ({ keysStorage }: { keysStorage: InternalKeysStorage }) => {
     app.typedRoute({
-      method: 'GET',
+      method: 'POST',
       url: '/api/encrypt',
       schema: encryptSchema,
       handler: async (req, reply) => {

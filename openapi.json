@@ -136,7 +136,7 @@
       }
     },
     "/api/generate-key-pair": {
-      "get": {
+      "post": {
         "tags": [
           "User"
         ],
@@ -174,7 +174,7 @@
       }
     },
     "/api/encrypt": {
-      "get": {
+      "post": {
         "tags": [
           "User"
         ],

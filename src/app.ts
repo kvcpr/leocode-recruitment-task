@@ -10,14 +10,13 @@ import { registerSwagger, schemaDefinitions } from '@/openapi';
 
 import { decorateFastifyWithUserEmail } from './modules/auth/authorizeRequestHook';
 
+export type AppDeps = RegisterDependencies;
+
 export async function setupApp(
   deps: RegisterDependencies
 ): Promise<FastifyInstance> {
   const baseApp = fastify({
-    logger: {
-      level: 'debug',
-      prettyPrint: true,
-    },
+    logger: false,
   });
 
   const app = await registerGlobalPlugins(baseApp);

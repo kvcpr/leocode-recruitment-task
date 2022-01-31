@@ -24,7 +24,7 @@ export const registerGenerateKeyPairController =
   (app: FastifyTypedInstance) =>
   ({ keysStorage }: { keysStorage: InternalKeysStorage }) => {
     app.typedRoute({
-      method: 'GET',
+      method: 'POST',
       url: '/api/generate-key-pair',
       schema: generateKeyPairSchema,
       handler: async (req, reply) => {
