@@ -45,6 +45,10 @@ jobs:
           node-version: "16.x"
       - name: Install dependencies
         run: yarn
+      - name: Use .env.template
+        uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: .env.template
       - name: Run tests
         run: yarn test
 
