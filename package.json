@@ -1,6 +1,6 @@
 {
   "name": "@kvcpr/leocode-recruitment-task",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recuriment task for Leocode",
   "main": "src/main.ts",
   "repository": "https://github.com/kvcpr/leocode-recruitment-task.git",
